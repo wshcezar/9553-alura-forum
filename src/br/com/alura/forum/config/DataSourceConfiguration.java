@@ -22,6 +22,7 @@ public class DataSourceConfiguration {
 	}
 	
 	@Bean
+	@Profile("desenvolvimento")
 	public DataSource desenvolvimento() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
