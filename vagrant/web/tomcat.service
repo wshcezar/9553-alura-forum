@@ -14,7 +14,7 @@ Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headle
 Environment="CATALINA_BASE=/opt/tomcat/tomcat8"
 Environment="CATALINA_HOME=/opt/tomcat/tomcat8"
 Environment="CATALINA_PID=/opt/tomcat/tomcat8/temp/tomcat.pid"
-Environment="CATALINA_OPTS=-Xms384M -Xmx384M"
+Environment="CATALINA_OPTS=-Xms384M -Xmx384M -javaagent:/opt/glowroot/glowroot.jar"
 
 ExecStart=/opt/tomcat/tomcat8/bin/startup.sh
 ExecStop=/opt/tomcat/tomcat8/bin/shutdown.sh

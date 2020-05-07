@@ -17,11 +17,14 @@ Vagrant.configure("2") do |config|
 
     web.vm.network "private_network", ip: "192.168.56.105"
     web.vm.network "forwarded_port", guest: 8080, host: 8080
+    web.vm.network "forwarded_port", guest: 4000, host: 4000
 
     web.vm.provision "shell", path: "vagrant/web/install.sh"
     web.vm.provision "file", source: "vagrant/web/apache-tomcat-8.5.47.tar.gz", destination: "/tmp/apache-tomcat-8.5.47.tar.gz"
     web.vm.provision "file", source: "vagrant/web/tomcat.service", destination: "/tmp/tomcat.service"
     web.vm.provision "file", source: "target/alura-forum-0.0.1-SNAPSHOT.war", destination: "/tmp/alura-forum.war"
+    web.vm.provision "file", source: "vagrant/web/glowroot.zip", destination: "/tmp/glowroot.zip"
+    web.vm.provision "file", source: "vagrant/web/admin.json", destination: "/tmp/admin.json"
     web.vm.provision "shell", path: "vagrant/web/post-install.sh"
   end
 
